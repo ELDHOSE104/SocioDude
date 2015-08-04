@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
 
     <script src="js/hello.min.js"></script>
     <link href="css/zocial.css" rel="stylesheet"/>
@@ -8,7 +9,10 @@
 </head>
 <body>
 <button class="zocial facebook" onclick="hello('facebook').login()">Login with facebook</button>
+<button class="zocial google" onclick="hello('google').login()">Login with google</button>
+<button class="zocial github" onclick="hello('github').login()">Login with github</button>
 <script>
+
     hello.on('auth.login', function(auth) {
 
         // Call user information, for the given network
@@ -24,11 +28,11 @@
         });
     });
 
-
     hello.init({
         facebook: 868589679887559,
-        google: ''
-    }, {redirect_uri: 'success.html'});
+        google:'',
+        github: 'e939d49592e2ae5feebf'
+            }, {redirect_uri: 'success.html'});
 
 
 

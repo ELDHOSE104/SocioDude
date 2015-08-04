@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/pubnub.min.js"></script>
+    <script src="js/script.js"></script>
+    <meta charset="UTF-8">
+    <title>Canvas Drawing</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    var PUBNUB_demo = PUBNUB.init({
+        publish_key: 'pub-c-28499904-6bb2-46bb-9475-37428c2674a1',
+        subscribe_key: 'sub-c-0e43000c-3a9a-11e5-883c-02ee2ddab7fe'
+    });
+    var canvas = document.getElementById('drawCanvas');
+    var ctx = canvas.getContext('2d');
+
+    ctx.lineWidth = '3';
+    canvas.addEventListener('mousedown', startDraw, false);
+    canvas.addEventListener('mousemove', draw, false);
+    canvas.addEventListener('mouseup', endDraw, false);
+    // create a flag
+    var isActive = false;
+
+    // array to collect coordinates
+    var plots = [];
+
+    function draw(e) {
+        if(!isActive) return;
+
+        // cross-browser canvas coordinates
+        var x = e.offsetX || e.layerX - canvas.offsetLeft;
+        var y = e.offsetY || e.layerY - canvas.offsetTop;
+
+        plots.push({x: x, y: y});
+
+        drawOnCanvas(plots);
+    }
+
+    function drawOnCanvas(color, plots) {
+        ctx.beginPath();
+        ctx.moveTo(plots[0].x, plots[0].y);
+
+        for(var i=1; i<plots.length; i++) {
+            ctx.lineTo(plots[i].x, plots[i].y);
+        }
+        ctx.stroke();
+    }
+    function startDraw(e) {
+        isActive = true;
+    }
+
+    function endDraw(e) {
+        isActive = false;
+
+        // empty the array
+        plots = [];
+    }
+</script>
+<canvas id="drawCanvas" width="800" height="600"></canvas>
+
+</body>
+</html>
