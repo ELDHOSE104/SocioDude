@@ -1,65 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <script src="js/pubnub.min.js"></script>
-    <script src="js/script.js"></script>
-    <meta charset="UTF-8">
-    <title>Canvas Drawing</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>SocioDude</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<script type="text/javascript">
+<header>
+    <div>
+        <h1>SocioDude</h1>
+        <h2>Doodle with strangers on InterWeb!</h2>
+    </div>
+    <div class="bubble">
+        <span id="occupancy">0</span>
+        <span id="unit">doodler</span>
+    </div>
+</header>
 
-    var PUBNUB_demo = PUBNUB.init({
-        publish_key: 'pub-c-28499904-6bb2-46bb-9475-37428c2674a1',
-        subscribe_key: 'sub-c-0e43000c-3a9a-11e5-883c-02ee2ddab7fe'
-    });
-    var canvas = document.getElementById('drawCanvas');
-    var ctx = canvas.getContext('2d');
+<section id="main">
+    <canvas id="drawCanvas" width="300" height="300">Canvas is not supported on this browser!</canvas>
 
-    ctx.lineWidth = '3';
-    canvas.addEventListener('mousedown', startDraw, false);
-    canvas.addEventListener('mousemove', draw, false);
-    canvas.addEventListener('mouseup', endDraw, false);
-    // create a flag
-    var isActive = false;
+    <section id="colorSwatch">
+        <input type="radio" name="color" id="color01" data-color="gold" checked><label for="color01"></label>
+        <input type="radio" name="color" id="color02" data-color="darkorange">	<label for="color02"></label>
+        <input type="radio" name="color" id="color03" data-color="navy">		<label for="color03"></label>
+        <input type="radio" name="color" id="color04" data-color="yellowgreen">	<label for="color04"></label>
+        <input type="radio" name="color" id="color05" data-color="firebrick">	<label for="color05"></label>
+        <input type="radio" name="color" id="color06" data-color="powderblue">	<label for="color06"></label>
+    </section>
+</section>
 
-    // array to collect coordinates
-    var plots = [];
 
-    function draw(e) {
-        if(!isActive) return;
 
-        // cross-browser canvas coordinates
-        var x = e.offsetX || e.layerX - canvas.offsetLeft;
-        var y = e.offsetY || e.layerY - canvas.offsetTop;
 
-        plots.push({x: x, y: y});
 
-        drawOnCanvas(plots);
-    }
-
-    function drawOnCanvas(color, plots) {
-        ctx.beginPath();
-        ctx.moveTo(plots[0].x, plots[0].y);
-
-        for(var i=1; i<plots.length; i++) {
-            ctx.lineTo(plots[i].x, plots[i].y);
-        }
-        ctx.stroke();
-    }
-    function startDraw(e) {
-        isActive = true;
-    }
-
-    function endDraw(e) {
-        isActive = false;
-
-        // empty the array
-        plots = [];
-    }
+<script>
+    // For history() demo, please view history.html.
+    var drawHistory = false;
 </script>
 
-<canvas id="drawCanvas" width="800" height="600">Browser not supported !</canvas>
+<script src="http://cdn.pubnub.com/pubnub.min.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
