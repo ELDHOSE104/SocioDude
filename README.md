@@ -1,1 +1,1 @@
-#SocioDude -  The online Collaborative drawing platform
+#SocioDude -  A Collaborative drawing platform
