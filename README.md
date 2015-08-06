@@ -3,9 +3,9 @@ SodioDude is an online drawing platform that is derived from the very basics of 
 ##Demo##
 For demo of this site please clock [here](http://mallmate.in/eldhose).
 ##Technology Stack##
--HTML5 Canvas
--Pubnub Javascript Library
--TypedJS
--Jquery
--Zocial CSS
+- HTML5 Canvas
+- Pubnub Javascript Library
+- TypedJS
+- Jquery
+- Zocial CSS
 
