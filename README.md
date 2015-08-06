@@ -17,6 +17,6 @@ Refer [here](http://www.pubnub.com/blog/multiuser-draw-html5-canvas-tutorial/) t
 All the code that I have written is made under the **GNU General Public License** and the other are upto the corresponding authors.
 
 ###About me###
--  You can contact me on [eldhose.me](www.eldhose.me)
+-  You can contact me on [eldhose.me](http://eldhose.me)
 -  Or on email @ eldhose104@gmail.com
 
