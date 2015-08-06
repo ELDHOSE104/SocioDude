@@ -8,4 +8,8 @@ For demo of this site please clock [here](http://mallmate.in/eldhose).
 - TypedJS
 - Jquery
 - Zocial CSS
-
+###How it works ? ###
+A simple canvas effect that powered by the Pubnub library to send and to recieve the cordinates that are send though a channel and is recieved at another end. The function 
+>addEventListener()
+Listens the mouse strokes which then calls the subsequent functions **startDraw(),endDraw() and draw()** makes the magic to happen ! 
+Refer [here](http://www.pubnub.com/blog/multiuser-draw-html5-canvas-tutorial/) to know more.
